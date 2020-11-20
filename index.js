@@ -76,10 +76,6 @@ class BunyanToGelfStream {
 
     message.__HELLO = 'HELO HELO';
 
-    console.log('=================================')
-    console.log(message);
-    console.log(log);
-
     this._transport.send(message);
   }
 }
