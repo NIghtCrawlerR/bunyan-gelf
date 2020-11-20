@@ -68,11 +68,17 @@ class BunyanToGelfStream {
     };
 
     // Remove gelf ignored fields
-    const keys = Object.keys(log).filter(key => !['hostname', 'time', 'msg', 'name', 'level', 'v'].includes(key));
+    // const keys = Object.keys(log).filter(key => !['hostname', 'time', 'msg', 'name', 'level', 'v'].includes(key));
 
-    keys.forEach(key => {
-      message[`_${key}`] = log[key];
-    });
+    // keys.forEach(key => {
+    //   message[`_${key}`] = log[key];
+    // });
+
+    message.__HELLO = 'HELO HELO';
+
+    console.log('=================================')
+    console.log(message);
+    console.log(log);
 
     this._transport.send(message);
   }
